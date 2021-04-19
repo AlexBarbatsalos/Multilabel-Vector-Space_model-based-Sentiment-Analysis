@@ -7,7 +7,7 @@ import sklearn
 import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
 
-workind_dir = 'C:\\Users\\Anwender\\Documents\\SCAN\Masterarbeitsthema\\Jacobs Machine Learning Linguistics'
+workind_dir = ''            ###INSERT WORKING DIRECTORY HERE
 os.chdir(working_dir)
 
 import SentiArt
