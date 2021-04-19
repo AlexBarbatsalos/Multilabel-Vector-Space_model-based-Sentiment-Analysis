@@ -7,8 +7,9 @@ import sklearn
 import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
 
+wd = ''         ### INSERT WORKING DIRECTORY HERE
 
-os.chdir('C:\\Users\\Anwender\\Documents\\SCAN\Masterarbeitsthema\\Jacobs Machine Learning Linguistics')
+os.chdir(wd)
 
 import SentiArt
 
@@ -247,10 +248,18 @@ angst_ratings = np.asarray(frame_angst['angst'])
 
 
 
-#### Ab hier: ich will eine funktion machen um die extraktion zu optimieren sodass sie fÃ¼r beide (tsne und full)klappt
+
 
 def label_extractor(predictor_matrix, true_vector, label_dict, label_name, no_sublabels, model=man):
+    '''
+    label_extractor runs a multiple LinReg given:
+    (1) a given model
+    (2) a certain set of sublabels given a discrete emotion label
+    (3) A predictor matrix with VSM-based predictions
+    (4) A true vector which is to be predicted
     
+    It extracts (no_sublabels) sublabels from the initial sublabel set based on the beta-weights in the LinReg.
+    '''
     from sklearn.linear_model import LinearRegression
 
     #set up LinReg model
@@ -285,8 +294,6 @@ weights = weights_per_label.sort_values(ascending=False)
 angst_sublabels_reg = list(['Angst']+list(weights.index[:25]))  ### 26 basierend auf kurve!!!
 angst_reg_full = {'Angst':angst_sublabels_reg}
 
-#clean
-#angst_reg['Angst'].remove('Angst-')
 
 
 angst__reg_full = man.compute_single_column(ocw['angst'],angst_reg_full)
@@ -325,12 +332,6 @@ angst_sublabels_reg = list(['Angst']+list(weights.index[:20]))
 
 angst_reg = {'Angst':angst_sublabels_reg}
 
-##clean
-#angst_reg['Angst'].remove('sangst')
-#angst_reg['Angst'].remove('FÃ¤ngst')
-############ WICHTIG!!!!!!!! ########## 
-## ich benutze tsne NUR um eine auswahl an labels zu extrahieren, mache die korrelationen aber trotzdem 
-## mit den vektoren aus dem vollen modell (vsm mit 300 dims --> d.h. tsne ist nur fÃ¼r labelauswahl)
 
 angst__reg_tsne = man.compute_single_column(ocw['angst'],angst_reg)
 frame_angst = validation_preparation(db, angst__reg_tsne[1], angst_col_single[1], col_name='angst_reg')
