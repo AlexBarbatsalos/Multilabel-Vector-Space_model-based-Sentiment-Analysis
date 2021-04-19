@@ -8,7 +8,7 @@ import gensim
 import sklearn
 import matplotlib.pyplot as plt
 
-wd=''
+wd=''       ### INSERT WORKING DIRECTORY HERE ###
 os.chdir(wd)
 
 import SentiArt   #has to be in working directory
