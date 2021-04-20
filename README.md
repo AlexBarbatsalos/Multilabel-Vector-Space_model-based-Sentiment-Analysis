@@ -12,6 +12,7 @@ In the follwowing I will list some distinctive features of our approach for bett
 (2) Our objective is finding sets of labels for DISCRETE EMOTIONS in vector space to reliably predict human-rated sentiment across two GERMAN data sets:
       
    -The DENN_BAWL ('Discrete Emotion Norms for Nouns: Berlin Affective Word List';see Briesemeister et al., 2011)
+   
    -A Harry Potter chapter consisting of 120 Sentences
       
 (3) In order to achieve that, we sample words, simmilar to five discrete emotion labels (ANGST, FREUDE, WUT, TRAUER, EKEL) from vector space and evaluate the sample with respect to predictive strength of the sampled units
