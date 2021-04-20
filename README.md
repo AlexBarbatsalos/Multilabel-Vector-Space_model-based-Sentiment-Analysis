@@ -22,6 +22,36 @@ In the follwowing I will list some distinctive features of our approach for bett
 
 ## Folder Content
 
-## Usage Tips
+#### data analysis code
+
+(1) SentiArt.py: A Python class for the setup of a SentiArt-table
+
+(2) DENN_BAWL Validierung.py: Code for evaluating the sampled multilabel sets from vector space in a validation process based on the DENN_BAWL. This code also runs the correlation and classification tasks on the dataset
+
+(3) harry_potter_data_preprocessing.py: data for preprocessing of harry potter sentence data. based on the output of a treetaggerwrapper (see data folder)
+
+(4) harry_potter_analysis.py: runs correlation and classification tasks on the dataset
+
+
+#### data
+This folder is incomplete up to now, new content will be added step by step
+
+(1) harry_preprocessed.xlsx: excel-file containing relevant preprocessing output for the harry potter dataset for subsequent analysis
+
+(2) treetagger_harry_output.txt: output of the TreeTagger for Windows (https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/)
+
+#### charts/graphs
+currently empty
+
+The folder will include code for graphics, which support the understanding and/or presentation of the results of the analysis.
+
 
 ### important papers
+Briesemeister, B. B., Kuchinke, L., Jacbos, A. M. (2011). Discrete emotion norms for nouns: Berlin affective word list (DENN–BAWL). Behav Res, 43, 441-448.
+
+Jacobs, A. M., & Kinder, A.(2019). Computing the Affective-Aesthetic Potential of Literary Texts. AI 2020, 1, 11-27.
+
+Mikolov, T., Chen, K., Corrado, G., Dean, J.(2013). Efficient Estimation of Word Representations in Vector Space. Proceedings of ICLR Workshops Track, 1-12.
+
+
+
