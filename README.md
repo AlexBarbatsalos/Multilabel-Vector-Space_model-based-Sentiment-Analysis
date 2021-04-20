@@ -7,7 +7,7 @@ Vector Space Models (see Mikolov et al. 2013).
 
 In the follwowing I will list some distinctive features of our approach for better user orientation.
 
-(1) The SA framework is based on SentiArt, a VSM-based SA tool, for reference see the important papers
+(1) The SA framework is based on SentiArt, a VSM-based SA tool, for reference see the important papersn/
 (2) Our objective is finding sets of labels for DISCRETE EMOTIONS in vector space to reliably predict human-rated sentiment across two GERMAN data sets:
       - The DENN_BAWL ('Discrete Emotion Norms for Nouns: Berlin Affective Word List';see Briesemeister et al., 2011)
       - A Harry Potter chapter consisting of 120 Sentences
