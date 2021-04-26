@@ -6,6 +6,7 @@ import math
 import sklearn
 import matplotlib.pyplot as plt
 from sklearn.manifold import TSNE
+import pandas as pd
 
 workind_dir = ''            ###INSERT WORKING DIRECTORY HERE
 os.chdir(working_dir)
@@ -348,9 +349,9 @@ ind = pd.MultiIndex.from_tuples(label_tuples, names=['labels', 'sublabels'])
 vsm_frame = pd.DataFrame(index = ind, columns = range(1,301))
 for row in vsm_frame.index:
     try:
-        vsm_frame.loc[row] = vsm[row[1]]
+        vsm_frame.loc[row] = man.model[row[1]]
     except:
-        vsm_frame.loc[row] = vsm[row[1].capitalize()]
+        vsm_frame.loc[row] = man.model[row[1].capitalize()]
 
 
 import time
@@ -367,8 +368,9 @@ tsne.embedding_.shape
 
 embedded_frame = pd.DataFrame(data = tsne.embedding_, index = ind, columns = ['dim 1', 'dim 2'])
 
+#for excel table see /data
 embedded_frame.to_excel('2D tsne embedded labels and denn_bawl_words.xlsx')  #save frame for fast retrieval
-embedded = pd.read_excel('important tables\\2D tsne embedded labels and denn_bawl_words.xlsx', index_col=[0,1], engine='openpyxl')
+embedded = pd.read_excel(working_dir, index_col=[0,1], engine='openpyxl')
 
 
 
@@ -448,7 +450,8 @@ for ind in sim_frame_angst.index.values:
 
 standardized_angst = z_standardize(sim_frame_angst)
 
-standardized_angst.to_excel('important tables\\tSNE angst frame.xlsx')
+# see /data
+standardized_angst.to_excel(working_dir)
 
 
 # compute frame for EKEL
@@ -461,7 +464,8 @@ for ind in sim_frame_ekel.index.values:
 
 standardized_ekel = z_standardize(sim_frame_ekel)
 
-standardized_ekel.to_excel('important tables\\tSNE ekel frame.xlsx')
+#see /data
+standardized_ekel.to_excel(working_dir)
 
 
 # compute frame for FREUDE
@@ -474,7 +478,8 @@ for ind in sim_frame_freude.index.values:
 
 standardized_freude = z_standardize(sim_frame_freude)
 
-standardized_freude.to_excel('important tables\\tSNE freude frame.xlsx')
+#see /data
+standardized_freude.to_excel(working_dir)
 
 
 # compute frame for WUT
@@ -487,7 +492,8 @@ for ind in sim_frame_wut.index.values:
 
 standardized_wut = z_standardize(sim_frame_wut)
 
-standardized_wut.to_excel('important tables\\tSNE wut frame.xlsx')
+#see /data
+standardized_wut.to_excel(working_dir)
 
 
 # compute frame for TRAUER
@@ -500,7 +506,8 @@ for ind in sim_frame_trauer.index.values:
 
 standardized_trauer = z_standardize(sim_frame_trauer)
 
-standardized_trauer.to_excel('important tables\\tSNE trauer frame.xlsx')
+# see /data
+standardized_trauer.to_excel(working_dir)
 
 
 # load frames and merge with DENN_BAWL for follow_up LinReg
