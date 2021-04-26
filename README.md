@@ -26,7 +26,7 @@ In the follwowing I will list some distinctive features of our approach for bett
 
 (1) SentiArt.py: A Python class for the setup of a SentiArt-table
 
-(2) DENN_BAWL Validierung.py: Code for evaluating the sampled multilabel sets from vector space in a validation process based on the DENN_BAWL. This code also runs the correlation and classification tasks on the dataset
+(2) DENN_BAWL Validation.py: Code for evaluating the sampled multilabel sets from vector space in a validation process based on the DENN_BAWL. This code also runs the correlation and classification tasks on the dataset
 
 (3) harry_potter_data_preprocessing.py: data for preprocessing of harry potter sentence data. based on the output of a treetaggerwrapper (see data folder)
 
@@ -39,6 +39,10 @@ This folder is incomplete up to now, new content will be added step by step
 (1) harry_preprocessed.xlsx: excel-file containing relevant preprocessing output for the harry potter dataset for subsequent analysis
 
 (2) treetagger_harry_output.txt: output of the TreeTagger for Windows (https://www.cis.uni-muenchen.de/~schmid/tools/TreeTagger/)
+
+(3) tsne frames: those frames are the result of a tsne-based reduction of the full 300-dim VSM, you can either compute them yourself (see DENN_BAWL Validation.py), or   directly load them with pd.read_excel
+
+For any further data  (DENN_BAWL, Harry Potter raw data) please contact me (alex-ts@gmx.de).
 
 #### charts/graphs
 currently empty
