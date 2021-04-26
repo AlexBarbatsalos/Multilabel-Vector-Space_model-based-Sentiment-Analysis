@@ -14,11 +14,7 @@ os.chdir(working_dir)
 import SentiArt
 
 
-from gensim.models import KeyedVectors
-
-model_dir = 'Vector Space Models\\gensim models\\120sdewac_sg300.vec'
-
-fn = 'DENN-BAWL_AJ14.txt'
+fn = 'DENN-BAWL_AJ14.txt'  ## Validation dataset
 db = pd.read_csv(fn, decimal=",", encoding='utf-8')
 
 db['up'] = db['up'].replace([el for el in db['up'].values], [el.lower() for el in db['up'].values])
