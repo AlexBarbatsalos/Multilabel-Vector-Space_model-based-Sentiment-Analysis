@@ -34,110 +34,44 @@ word_table = [word for no in harry_data['nouns'].values for word in no]
 
 
 
-angst_dict_full = {'Angst': ['Angst',
-  'Hilflosigkeitsgefühle',
-  'Verfolgungsangst',
-  'Bedrohungsängste',
-  'Panikgefühlen',
-  'Ohnmachtsgefühlen',
-  'Unsicherheitsgefühle',
-  'Haßgefühle',
-  'Schamgefühlen',
-  'Unsicherheitsgefühl',
-  'Schuldgefühl',
-  'Erwartungsängste',
-  'Bedrohungsgefühle',
-  'Verzweiflungen',
-  'ängstigen',
-  'Ängst',
-  'Angstvorstellung',
-  'Angstgefühle',
-  'Angsten',
-  'Verlassenheitsängste',
-  'Angstmache',
-  'Angstgefühl',
-  'Furchtlosigkeit',
-  'Einsamkeitsgefühle',
-  'Verlassenheitsgefühle',
-  'Angstvolle']}
+angst_dict_full = {'Angst': ['Angst', 'Verlassenheitsängsten', 
+                        'Bedrohungsgefühlen', 'Verfolgungsängste', 
+                        'Bedrohungsangst', 'Unsicherheitsgefühl', 
+                        'Angstgefühlen', 'Ohnmachtsgefühle', 
+                        'Panikgefühle', 'Todesängste', 
+                        'Hilflosigkeitsgefühle', 
+                        'Angstmache', 'Ängstlichkeit', 
+                        'Angstschreien', 'Schamgefühle']}
 
-angst_dict_tsne = {'Angst': ['Angst',
-  'Gewissensangst',
-  'Ohnmachtsgefühlen',
-  'Hexenangst',
-  'Angstquelle',
-  'Ohnmachtsangst',
-  'Verlorenheitsgefühle',
-  'Ohnmachtsgefühle',
-  'Angstlust',
-  'Bedrohungsgefühle',
-  'Bedrohungsgefühlen',
-  'verängstigen',
-  'bedrängst',
-  'Zukunftsangst',
-  'Redeangst',
-  'ängstigen',
-  'Schwellenangst',
-  'Angstlichkeit',
-  'Angstvoll',
-  'Angstschreien',
-  'Höllenangst']}
+angst_dict_tsne = {'Angst': ['Angst', 'Gewissensangst', 
+                        'Ohnmachtsgefühlen', 'Hexenangst', 
+                        'Angstquelle', 'Ohnmachtsangst', 
+                        'Verlorenheitsgefühle', 'Angstlust', 
+                        'Bedrohungsgefühle', 'verängstigen', 
+                        'bedrängst', 'Zukunftsangst', 
+                        'Redeangst', 'Schwellenangst', 
+                        'Angstvoll']}
 
 
 
-freude_dict_full = {'Freude': ['Freude',
-  'freudevollen',
-  'Sinnesfreuden',
-  'Sinnenfreude',
-  'freudvoll',
-  'freudestrahlenden',
-  'Osterfreude',
-  'freudenreich',
-  'Fröhlichkeit',
-  'freudenreiche',
-  'Begeisternd',
-  'Augenfreude',
-  'Freudenrufen',
-  'Glückseeligkeit',
-  'Vorfreuden',
-  'Freu(n)de',
-  'Begeisterungsschreie',
-  'Zuneigung',
-  'freudenvolle',
-  'Dankbarkeit',
-  'Herzensfreude',
-  'Jubel',
-  'Freudigkeit',
-  'froher',
-  'Leude',
-  'Arbeitsfreude']}
+freude_dict_full = {'Freude': ['Freude', 'Sommerfreuden', 
+                          'Sinnesfreude', 'Entdeckerfreude', 
+                          'freuden', 'freudestrahlend', 
+                          'Begeisterung', 'freudevollen', 
+                          'Lebensfreuden', 'freudetrunken', 
+                          'Vorfreude', 'freudvolle', 
+                          'freudige', 'Glückseeligkeit', 
+                          'Wohlgefühle']}
 
-freude_dict_tsne = {'Freude': ['Freude',
-  'Sommerfreude',
-  'Kinderfreude',
-  'begeisterung',
-  'Trinkfreude',
-  'Vorfreude',
-  'Sinnenfreuden',
-  'Begeisterte',
-  'Fröhlichkeit',
-  'Begeisterungsrufe',
-  'Erwartungsfreude',
-  'Kauffreude',
-  'frohem',
-  'Sangesfreude',
-  'Soap-Begeisterung',
-  'Mutterfreuden',
-  'Osterfreude',
-  'Musizierfreude',
-  'Genussfreude',
-  'Hörfreude',
-  'Begeisterungsstürme',
-  'Vaterfreuden',
-  'Begeistert',
-  'Begeisterungen',
-  'Weihnachtsfreude',
-  'Mitfreude']}
+
+freude_dict_tsne = {'Freude': ['Freude', 'Sommerfreude', 
+                          'Kinderfreude', 'begeisterung', 
+                          'Trinkfreude', 'Vorfreude', 
+                          'Sinnenfreuden', 'Begeisterte', 
+                          'Fröhlichkeit', 'Begeisterungsrufe', 
+                          'Erwartungsfreude', 'Kauffreude', 
+                          'frohem', 'Sangesfreude', 
+                          'Soap-Begeisterung']}
 
 
 ## import vsm with SentiArtManager
@@ -210,7 +144,6 @@ for key in angst_single_per_sent.keys():
     freude_multi_tsne_per_sent[key] = np.mean(freude_multi_tsne_per_sent[key])
 
 
-
 angst_1 = pd.Series(index = angst_single_per_sent.keys(), data=angst_single_per_sent.values())
 freude_1 = pd.Series(index = freude_single_per_sent.keys(), data=freude_single_per_sent.values())
 
@@ -261,10 +194,26 @@ plt.scatter(harry_data['Mean_happiness_RATING'].values, freude_tsne.values)
 
 ### CLASSIFICATION TASK
 
-category_predictions = pd.DataFrame(index=range(120), columns=['single_label_pred_CATEGORY',
+category_predictions = pd.DataFrame(index=range(120), columns=['single_label_pred_CATEGORY', 
                                                                'multilabel_full_pred_CATEGORY','multilabel_tsne_pred_CATEGORY', 'True Category'])
 
+##### HP human rating categorization 
+import seaborn as sns
 
+sns.set()
+fig,ax = plt.subplots(figsize=(12,7))
+line1 = plt.plot(range(120),harry_data['Mean_Fear_RATING'].values,color='blue')
+line2 = plt.plot(range(120),harry_data['Mean_happiness_RATING'].values,color='green')
+ax.legend(['Angst','Freude'])
+
+plt.axvline(x=np.where(harry_data['Category'].values == 'H')[0][0], color='k', linestyle='--', lw=1)
+plt.axvline(x=np.where(harry_data['Category'].values == 'N')[0][0], color='k', linestyle='--',lw=1)
+
+ax.set_xlabel('Sentence Number',size=15)
+ax.set_ylabel('human Rating',size=15)
+
+
+##### actual classification
 
 def category_extractor(angst_series, freude_series, stds=1, method='std'):
     '''
@@ -293,7 +242,7 @@ def category_extractor(angst_series, freude_series, stds=1, method='std'):
                     category_list.append('N')
     
     return category_list
-
+        
 
 
 single = category_extractor(angst_1, freude_1)
@@ -304,7 +253,6 @@ category_predictions['single_label_pred_CATEGORY'] = single
 category_predictions['multilabel_full_pred_CATEGORY'] = multi_full
 category_predictions['multilabel_tsne_pred_CATEGORY'] = multi_tsne
 category_predictions['True Category'] = harry_data['Category']
-
 
 
 from sklearn.metrics import confusion_matrix
@@ -319,11 +267,17 @@ classification_multilabel_full = confusion_matrix(category_predictions['multilab
 
 classification_multilabel_tsne = confusion_matrix(category_predictions['multilabel_tsne_pred_CATEGORY'].values,
                                              category_predictions['True Category'].values)
+                                        
 
 
 
 
 import itertools
+import seaborn as sns
+
+from sklearn.metrics import accuracy_score
+from sklearn.metrics import f1_score
+
 
 def plot_confusion_matrix(cm, classes,
                           normalize=False,
@@ -333,6 +287,7 @@ def plot_confusion_matrix(cm, classes,
     This function prints and plots the confusion matrix.
     Normalization can be applied by setting `normalize=True`.
     """
+    sns.set_style('white')
     plt.imshow(cm, interpolation='nearest', cmap=cmap)
     plt.title(title)
     plt.colorbar()
@@ -349,7 +304,7 @@ def plot_confusion_matrix(cm, classes,
 
     print(cm)
 
-    thresh = cm.max() / 2.
+    thresh = cm.max() / 4.
     for i, j in itertools.product(range(cm.shape[0]), range(cm.shape[1])):
         plt.text(j, i, cm[i, j],
                  horizontalalignment="center",
@@ -361,15 +316,33 @@ def plot_confusion_matrix(cm, classes,
 
 
 
-
-
+##### Matrix for singlelabel classification (+ F1 and accuracy)
 plot_confusion_matrix(classification_singlelabel, classes=list(set(category_predictions['True Category'].values)), 
-                      normalize=True, title='Confusion Matrix single_label')
+                      normalize=True, title='Singlelabel')
+
+print(accuracy_score(category_predictions['single_label_pred_CATEGORY'].values, 
+                                             category_predictions['True Category'].values))
+print(f1_score(category_predictions['single_label_pred_CATEGORY'].values, 
+                                             category_predictions['True Category'].values, average='macro'))
 
 
+
+##### Matrix for multilabel classification with full model (+ F1 and accuracy)
 plot_confusion_matrix(classification_multilabel_full, classes=list(set(category_predictions['True Category'].values)), 
-                      normalize=True, title='Confusion Matrix multilabel_full')
+                      normalize=True, title='Multilabel full VSM')
+
+print(accuracy_score(category_predictions['multilabel_full_pred_CATEGORY'].values,
+                                             category_predictions['True Category'].values))
+print(f1_score(category_predictions['multilabel_full_pred_CATEGORY'].values, 
+                                             category_predictions['True Category'].values, average='macro'))
 
 
+
+##### Matrix for multilabel classification with tSNE model (+ F1 and accuracy)
 plot_confusion_matrix(classification_multilabel_tsne, classes=list(set(category_predictions['True Category'].values)), 
-                      normalize=True, title='Confusion Matrix multilabel_tsne')
+                      normalize=True, title='Multilabel tSNE')
+
+print(accuracy_score(category_predictions['multilabel_tsne_pred_CATEGORY'].values,
+                                             category_predictions['True Category'].values))
+print(f1_score(category_predictions['multilabel_tsne_pred_CATEGORY'].values, 
+                                             category_predictions['True Category'].values, average='macro'))
