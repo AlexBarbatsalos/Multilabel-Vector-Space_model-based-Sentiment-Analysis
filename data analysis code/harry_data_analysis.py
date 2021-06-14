@@ -197,7 +197,7 @@ plt.scatter(harry_data['Mean_happiness_RATING'].values, freude_tsne.values)
 category_predictions = pd.DataFrame(index=range(120), columns=['single_label_pred_CATEGORY', 
                                                                'multilabel_full_pred_CATEGORY','multilabel_tsne_pred_CATEGORY', 'True Category'])
 
-##### HP human rating categorization 
+##### HP human rating categorization ['HP human rating categories.png']
 import seaborn as sns
 
 sns.set()
@@ -316,7 +316,7 @@ def plot_confusion_matrix(cm, classes,
 
 
 
-##### Matrix for singlelabel classification (+ F1 and accuracy)
+##### Matrix for singlelabel classification (+ F1 and accuracy) ['con mat HP single.png']
 plot_confusion_matrix(classification_singlelabel, classes=list(set(category_predictions['True Category'].values)), 
                       normalize=True, title='Singlelabel')
 
@@ -327,7 +327,7 @@ print(f1_score(category_predictions['single_label_pred_CATEGORY'].values,
 
 
 
-##### Matrix for multilabel classification with full model (+ F1 and accuracy)
+##### Matrix for multilabel classification with full model (+ F1 and accuracy) ['con mat HP multi FULL.png']
 plot_confusion_matrix(classification_multilabel_full, classes=list(set(category_predictions['True Category'].values)), 
                       normalize=True, title='Multilabel full VSM')
 
@@ -338,7 +338,7 @@ print(f1_score(category_predictions['multilabel_full_pred_CATEGORY'].values,
 
 
 
-##### Matrix for multilabel classification with tSNE model (+ F1 and accuracy)
+##### Matrix for multilabel classification with tSNE model (+ F1 and accuracy) ['con mat HP multi tSNE.png']
 plot_confusion_matrix(classification_multilabel_tsne, classes=list(set(category_predictions['True Category'].values)), 
                       normalize=True, title='Multilabel tSNE')
 
