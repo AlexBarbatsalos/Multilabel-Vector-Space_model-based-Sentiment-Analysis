@@ -42,12 +42,16 @@ This folder is incomplete up to now, new content will be added step by step
 
 (3) tsne frames: those frames are the result of a tsne-based reduction of the full 300-dim VSM, you can either compute them yourself (see DENN_BAWL Validation.py), or   directly load them with pd.read_excel
 
+(4) SentiArt table: a SentiArt table collecting the results of the analysis
+
 For any further data  (DENN_BAWL, Harry Potter raw data) please contact me (alex-ts@gmx.de).
 
-#### charts/graphs
-currently empty
+#### figures and graphs
+Figures accompanying the analysis.
 
-The folder will include code for graphics, which support the understanding and/or presentation of the results of the analysis.
+The code is found in the data analysis code subdirectory. Code specifically used to create figures is superscripted by the resepctive filename of the figure in parentheses. 
+
+e.g. ['data_analysis.png']
 
 
 ### important papers
